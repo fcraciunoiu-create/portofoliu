@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florin Craciunoiu | Web Developer</title>
+    <meta name="description" content="Self-taught web developer based in Romania, with 12 years in the UK. I build simple, functional web apps for small businesses.">
+    
+    <!-- Script pentru a preveni flash-ul de temă greșită la încărcare -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'light' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Tailwind CSS cu Dark Mode activat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dark body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+        }
+        
+        .bg-glow {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 70%);
+            z-index: -1;
+            filter: blur(60px);
+            transition: background 0.3s;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <div class="bg-glow"></div>
+
+    <!-- NAVIGARE -->
+    <nav class="fixed w-full top-0 z-50 glass-card !border-t-0 !border-l-0 !border-r-0 rounded-none">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-white">FC.</a>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600 dark:text-gray-300">
+                <a href="#about" class="hover:text-indigo-600 dark:hover:text-white transition">About</a>
+                <a href="#stack" class="hover:text-indigo-600 dark:hover:text-white transition">Stack</a>
+                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-white transition">Projects</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Buton Dark Mode -->
+                <button id="theme-toggle" type="button" class="text-slate-500 dark:text-gray-400 hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg text-sm p-2.5 transition focus:outline-none">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+
+                <a href="https://www.fiverr.com/s/gw4jPW" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition shadow-lg shadow-indigo-500/30">
+                    Hire Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Text preluat de pe Fiverr) -->
+    <section class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <!-- Poza de profil -->
+            <div class="w-32 h-32 mx-auto mb-8 rounded-full border-4 border-indigo-500/30 p-1 bg-slate-200 dark:bg-slate-800 shadow-xl overflow-hidden">
+                <img src="profile.jpg" alt="Florin Craciunoiu" class="w-full h-full rounded-full object-cover">
+            </div>
+
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full glass-card text-xs font-bold text-indigo-600 dark:text-indigo-400 tracking-wider uppercase">
+                Available for freelance work
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-tight">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-400">Florin Craciunoiu</span>.
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Self-taught web developer based in Romania, with 12 years in the UK. I build simple, functional web apps for small businesses using modern AI-assisted tools.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-800 dark:hover:bg-gray-100 transition shadow-lg">
+                    View My Work
+                </a>
+                <a href="https://github.com/fcraciunoiu-create" target="_blank" class="glass-card px-8 py-3 rounded-full font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition flex items-center justify-center gap-2 text-slate-900 dark:text-white">
+                    <i class="ph ph-github-logo text-xl"></i> GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT I OFFER (Secțiune nouă bazată pe Fiverr) -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-sm font-bold text-indigo-600 dark:text-indigo-400 tracking-widest uppercase mb-8">What I offer</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                    <div class="text-2xl text-indigo-500 dark:text-indigo-400"><i class="ph ph-app-window"></i></div>
+                    <p class="text-slate-700 dark:text-gray-300 font-medium">Custom web applications (trackers, dashboards, generators)</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                    <div class="text-2xl text-cyan-500 dark:text-cyan-400"><i class="ph ph-layout"></i></div>
+                    <p class="text-slate-700 dark:text-gray-300 font-medium">Responsive landing pages</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                    <div class="text-2xl text-orange-500 dark:text-orange-400"><i class="ph ph-bug"></i></div>
+                    <p class="text-slate-700 dark:text-gray-300 font-medium">Bug fixes (HTML, CSS, JavaScript)</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                    <div class="text-2xl text-purple-500 dark:text-purple-400"><i class="ph ph-paint-brush"></i></div>
+                    <p class="text-slate-700 dark:text-gray-300 font-medium">UI improvements</p>
+                </div>
+            </div>
+
+            <p class="mt-10 text-slate-600 dark:text-gray-400 font-medium italic">
+                "I work fast, communicate clearly, and deliver on time."
+            </p>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-center text-sm font-bold text-indigo-600 dark:text-indigo-400 tracking-widest uppercase mb-8">My Tech Stack</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-file-html text-orange-500 text-xl"></i> HTML5</span>
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-file-css text-blue-500 text-xl"></i> CSS3</span>
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-brackets-curly text-yellow-500 text-xl"></i> JavaScript</span>
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-wind text-cyan-500 text-xl"></i> Tailwind CSS</span>
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-git-branch text-red-500 text-xl"></i> Git & GitHub</span>
+                <span class="glass-card px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium"><i class="ph ph-brain text-purple-500 text-xl"></i> AI Tools</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+                    <p class="text-slate-600 dark:text-gray-400">A selection of live web applications I've built.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1: VoltFresh -->
+                <a href="https://fcraciunoiu-create.github.io/Voltfresh/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 flex items-center justify-center text-2xl">⚡</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">VoltFresh</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Pit stop landing page for a bio orchard and EV charging station on DN56. Features local SEO schema, a dynamic cafe menu, and responsive design.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">Tailwind</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">SEO</span>
+                    </div>
+                </a>
+
+                <!-- Project 2: SolarCraft -->
+                <a href="https://fcraciunoiu-create.github.io/solarcraft/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 dark:bg-yellow-500/20 flex items-center justify-center text-2xl">☀️</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">SolarCraft</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Interactive web application for solar energy calculations and custom panel configuration.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">CSS</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">JS</span>
+                    </div>
+                </a>
+
+                <!-- Project 3: Mindy & Nix -->
+                <a href="https://fcraciunoiu-create.github.io/mindy-nix/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-2xl">📖</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Mindy & Nix</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Landing page for the fantasy novel by Catrinel von Caianovici. Clean typography and engaging layout for book promotion.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">CSS</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">SEO</span>
+                    </div>
+                </a>
+
+                <!-- Project 4: Invoice Generator -->
+                <a href="https://fcraciunoiu-create.github.io/invoice-generator/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center text-2xl">🧾</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Invoice Generator</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Invoice generator with VAT calculation, PDF export and share feature. Built for freelancers and small businesses.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">JS</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">localStorage</span>
+                    </div>
+                </a>
+
+                <!-- Project 5: QR Code Generator -->
+                <a href="https://fcraciunoiu-create.github.io/qr-code-generator/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-500/10 dark:bg-slate-500/20 flex items-center justify-center text-2xl">📱</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">QR Code Generator</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Multi-format QR code generator (URL, text, WiFi, email) with instant download.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">JS</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">API</span>
+                    </div>
+                </a>
+
+                <!-- Project 6: Habit Tracker -->
+                <a href="https://fcraciunoiu-create.github.io/habit-tracker/" target="_blank" class="glass-card rounded-2xl p-6 group block">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-2xl">🌱</div>
+                        <i class="ph ph-arrow-up-right text-slate-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Habit Tracker</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6 line-clamp-3">Daily habit tracker with streak counters and weekly progress dots. Keeps you accountable.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-700 dark:text-gray-300">
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">HTML</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">JS</span>
+                        <span class="px-2 py-1 bg-slate-200/50 dark:bg-white/5 rounded-md border border-slate-300 dark:border-white/10">localStorage</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-white/5 py-12 mt-12">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-slate-500 dark:text-gray-500 text-sm font-medium">
+                © 2024 Florin Craciunoiu. Built from scratch with AI.
+            </div>
+            <div class="flex gap-6 text-2xl text-slate-400 dark:text-gray-400">
+                <a href="https://github.com/fcraciunoiu-create" target="_blank" class="hover:text-indigo-600 dark:hover:text-white transition"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/craciunoiu-florin-a71870181" target="_blank" class="hover:text-indigo-600 dark:hover:text-white transition"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://www.fiverr.com/s/gw4jPW" target="_blank" class="hover:text-indigo-600 dark:hover:text-white transition"><i class="ph ph-briefcase"></i></a>
+                <a href="mailto:fcraciunoiu@gmail.com" class="hover:text-indigo-600 dark:hover:text-white transition"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PENTRU DARK MODE -->
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
